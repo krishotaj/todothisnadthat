@@ -19,15 +19,11 @@ const UserSchema = new mongoose.UserSchema ({
         type:"String",
         required:true,
     },
-    createdAt:{
-        type:Date,
-        default:Date.now,   
+    isVerified:{
+        type:Boolean,
+        default:false,
     },
-    updatedAt:{
-        type:Date,
-        default:Date.now,
-    },
-});
+}, {timestamps: true});
 
 UserSchema.pre('save', function (next){
     this.updatedAt = Date.now();
